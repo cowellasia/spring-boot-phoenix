@@ -23,7 +23,8 @@ public class ConnectionFactory {
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         if (con == null || con.isClosed()) {
             Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
-            con = DriverManager.getConnection("jdbc:phoenix:" + PHOENIX_HOST + ":" + PHOENIX_PORT);
+            //con = DriverManager.getConnection("jdbc:phoenix:" + PHOENIX_HOST + ":" + PHOENIX_PORT);
+            con = DriverManager.getConnection("jdbc:phoenix:52.208.47.78");
         }
         return con;
     }
