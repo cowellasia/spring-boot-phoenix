@@ -23,13 +23,13 @@ public class Application {
     @Bean
     public DataSource dataSource() {
 
-//    EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-//    EmbeddedDatabase db =
-//        builder.setType(EmbeddedDatabaseType.H2).setSeparator(";;")
-//        .addScript("database/create-db.sql")
-//        .addScript("database/insert-data.sql")
-//        .build();
-//    return db;
+/*    EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+    EmbeddedDatabase db =
+        builder.setType(EmbeddedDatabaseType.H2).setSeparator(";;")
+        .addScript("database/create-db.sql")
+        .addScript("database/insert-data.sql")
+        .build();
+    return db; */
 
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("org.apache.phoenix.jdbc.PhoenixDriver");
@@ -37,13 +37,4 @@ public class Application {
         return dataSource;
 
     }
-
-    /*
-  @Bean
-  public Jackson2ObjectMapperBuilder objectMapperBuilder() {
-      Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
-      builder.serializerByType(PagedList.class, new PagedListSerializer());
-      builder.serializerByType(Employee.class, new EmployeeSerializer());
-      return builder;
-  }*/
 }
