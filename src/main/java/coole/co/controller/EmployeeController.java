@@ -60,10 +60,17 @@ public class EmployeeController {
 
 
   @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
-  public Employee getEmployee(@PathVariable int employeeId) {
+  public String getEmployee(@PathVariable int employeeId) {
 
-    return employeeService.getEmployee(employeeId);
+    String sqlQuery = "SELECT * FROM employees";
+    String json = getResults(sqlQuery);
+    return json;
   }
+//  @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
+//  public Employee getEmployee(@PathVariable int employeeId) {
+//
+//    return employeeService.getEmployee(employeeId);
+//  }
   
   @RequestMapping(method = RequestMethod.POST)
   public Employee addEmployee(@RequestBody Employee employee) {
