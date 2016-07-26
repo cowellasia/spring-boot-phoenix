@@ -64,7 +64,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
           @Override
           public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
           final PreparedStatement ps =
-          connection.prepareStatement("INSERT INTO employees (name, email, department_id) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+          connection.prepareStatement("upsert INTO employees (name, email, department_id) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
           ps.setString(1, employee.getName());
           ps.setString(2, employee.getEmailId());
           ps.setInt(3, employee.getDepartmentId());
