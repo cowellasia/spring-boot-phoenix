@@ -33,7 +33,7 @@ public class Application {
 
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("org.apache.phoenix.jdbc.PhoenixDriver");
-        dataSource.setUrl("jdbc:phoenix:52.208.47.78");
+        dataSource.setUrl("jdbc:phoenix:localhost");
         return dataSource;
 
     }

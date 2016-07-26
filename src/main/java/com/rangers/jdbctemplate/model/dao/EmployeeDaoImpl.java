@@ -19,6 +19,8 @@ import org.springframework.stereotype.Repository;
 
 import com.rangers.jdbctemplate.model.Employee;
 import com.rangers.jdbctemplate.model.PagedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Repository
 public class EmployeeDaoImpl implements IEmployeeDao {
@@ -50,26 +52,38 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
   @Override
   public Employee addEmployee(final Employee employee) {
-    System.out.println("Add an employees to departmernt :" + employee.getDepartmentId());
-    
-    PreparedStatementCreator ps = new PreparedStatementCreator() {
-      @Override
-      public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-        final PreparedStatement ps =
-            connection.prepareStatement("INSERT INTO employees (name, email, department_id) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
-        ps.setString(1, employee.getName());
-        ps.setString(2, employee.getEmailId());
-        ps.setInt(3, employee.getDepartmentId());
-        return ps;
-      }
-    };
-
-    KeyHolder holder = new GeneratedKeyHolder();
-    jdbcTemplate.update(ps, holder);
-    
-    employee.setId(holder.getKey().intValue());
-    
-    return employee;
+//      try {
+          System.out.println("Add an employees to departmernt :" + employee.getDepartmentId());
+            jdbcTemplate.update("upsert into employees values (name, email, department_id) values("+employee.getName()+","+employee.getEmailId()+",)");
+//          Connection connection = jdbcTemplate.getDataSource().getConnection();
+//          Statement statement = connection.createStatement();
+//          statement.executeUpdate("upsert into employees values (1,'Hello World')");
+          
+          
+          PreparedStatementCreator ps = new PreparedStatementCreator() {
+          @Override
+          public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+          final PreparedStatement ps =
+          connection.prepareStatement("INSERT INTO employees (name, email, department_id) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+          ps.setString(1, employee.getName());
+          ps.setString(2, employee.getEmailId());
+          ps.setInt(3, employee.getDepartmentId());
+          return ps;
+          }
+          };
+          
+          KeyHolder holder = new GeneratedKeyHolder();
+          jdbcTemplate.update(ps, holder);
+          
+          employee.setId(holder.getKey().intValue());
+          
+          
+          
+          return employee;
+//      } catch (SQLException ex) {
+//          Logger.getLogger(EmployeeDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+//          return null;
+//      }
   }
 
   @Override
