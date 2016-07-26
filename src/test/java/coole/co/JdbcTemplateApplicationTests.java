@@ -1,4 +1,4 @@
-package com.rangers;
+package coole.co;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
