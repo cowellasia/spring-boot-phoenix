@@ -11,7 +11,7 @@ public interface IEmployeeDao {
 
   public Employee getEmployee(int employeeId);
 
-  public Employee addEmployee(Employee employee) throws SQLException;
+  public Employee addEmployee(Employee employee);
 
   public Employee updateEmployee(Employee employee);
 
