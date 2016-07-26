@@ -55,7 +55,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
     public Employee addEmployee(final Employee employee) {
 //      try {
         System.out.println("Add an employees to departmernt :" + employee.getDepartmentId());
-        jdbcTemplate.update("upsert into employees values (name, email, department_id) values(" + employee.getName() + "," + employee.getEmailId() + ",)");
+       // jdbcTemplate.update("upsert into employees values (name, email, department_id) values(" + employee.getName() + "," + employee.getEmailId() + ",)");
 //          Connection connection = jdbcTemplate.getDataSource().getConnection();
 //          Statement statement = connection.createStatement();
 //          statement.executeUpdate("upsert into employees values (1,'Hello World')");
