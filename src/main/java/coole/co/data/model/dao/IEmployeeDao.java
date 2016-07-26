@@ -1,5 +1,6 @@
 package coole.co.data.model.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import coole.co.data.model.Employee;
@@ -10,7 +11,7 @@ public interface IEmployeeDao {
 
   public Employee getEmployee(int employeeId);
 
-  public Employee addEmployee(Employee employee);
+  public Employee addEmployee(Employee employee) throws SQLException;
 
   public Employee updateEmployee(Employee employee);
 

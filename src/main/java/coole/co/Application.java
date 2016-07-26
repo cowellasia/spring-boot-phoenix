@@ -38,6 +38,8 @@ public class Application {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("org.apache.phoenix.jdbc.PhoenixDriver");
         dataSource.setUrl(env.getProperty("phoenix.url"));
+        dataSource.setDefaultAutoCommit(true);
+
         return dataSource;
 
     }
