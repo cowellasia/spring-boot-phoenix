@@ -12,7 +12,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.rangers.jdbctemplate.model.dao", "com.rangers.jdbctemplate.model", "com.rangers.jdbctemplate.model.service"})
+//@ComponentScan(basePackages = {"com.rangers.jdbctemplate.model.dao", "com.rangers.jdbctemplate.model", "com.rangers.jdbctemplate.model.service"})
 public class Application {
 
     public static void main(String[] args) {
