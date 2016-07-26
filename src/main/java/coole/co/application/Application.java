@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
-@Configuration
+
 @PropertySource(value = {"classpath:phoenix.properties"})
 @SpringBootApplication
 public class Application {
@@ -31,6 +31,7 @@ public class Application {
         .addScript("database/insert-data.sql")
         .build();
     return db; */
+        System.out.println("env.getProperty(\"phoenix.url\"):" + env.getProperty("phoenix.url"));
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("org.apache.phoenix.jdbc.PhoenixDriver");
         dataSource.setUrl(env.getProperty("phoenix.url"));
