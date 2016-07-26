@@ -1,4 +1,4 @@
-package com.rangers.jdbctemplate;
+package coole.co.application;
 
 import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;

@@ -1,4 +1,4 @@
-package com.rangers.jdbctemplate.model.service;
+package coole.co.data.model.service;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.rangers.jdbctemplate.model.Employee;
-import com.rangers.jdbctemplate.model.dao.IEmployeeDao;
+import coole.co.data.model.Employee;
+import coole.data.model.dao.IEmployeeDao;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService {

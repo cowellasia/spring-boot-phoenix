@@ -1,8 +1,8 @@
-package com.rangers.jdbctemplate.model.dao;
+package coole.data.model.dao;
 
 import java.util.List;
 
-import com.rangers.jdbctemplate.model.Employee;
+import coole.co.data.model.Employee;
 
 public interface IEmployeeDao {
 

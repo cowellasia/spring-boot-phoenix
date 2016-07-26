@@ -1,4 +1,4 @@
-package com.rangers.jdbctemplate.controller;
+package coole.co.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rangers.jdbctemplate.model.Employee;
-import com.rangers.jdbctemplate.model.service.IEmployeeService;
+import coole.co.data.model.Employee;
+import coole.co.data.model.service.IEmployeeService;
 
 @RestController
 @RequestMapping("/api/employees")

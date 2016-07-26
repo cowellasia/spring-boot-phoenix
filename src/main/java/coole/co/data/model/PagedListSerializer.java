@@ -1,5 +1,5 @@
 
-package com.rangers.jdbctemplate.model;
+package coole.co.data.model;
 
 import java.io.IOException;
 

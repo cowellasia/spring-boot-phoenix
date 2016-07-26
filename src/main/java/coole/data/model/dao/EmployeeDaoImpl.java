@@ -1,4 +1,4 @@
-package com.rangers.jdbctemplate.model.dao;
+package coole.data.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,8 +17,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.rangers.jdbctemplate.model.Employee;
-import com.rangers.jdbctemplate.model.PagedList;
+import coole.co.data.model.Employee;
+import coole.co.data.model.PagedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

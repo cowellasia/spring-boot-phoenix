@@ -1,8 +1,8 @@
-package com.rangers.jdbctemplate.model.service;
+package coole.co.data.model.service;
 
 import java.util.List;
 
-import com.rangers.jdbctemplate.model.Employee;
+import coole.co.data.model.Employee;
 
 public interface IEmployeeService {
 

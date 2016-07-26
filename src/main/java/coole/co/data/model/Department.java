@@ -1,4 +1,4 @@
-package com.rangers.jdbctemplate.model;
+package coole.co.data.model;
 
 public class Department {
   private int id;
