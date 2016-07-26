@@ -1,4 +1,4 @@
-package coole.data.model.dao;
+package coole.co.data.model.dao;
 
 import java.util.List;
 

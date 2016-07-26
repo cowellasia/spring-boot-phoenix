@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import coole.co.data.model.Employee;
-import coole.data.model.dao.IEmployeeDao;
+import coole.co.data.model.dao.IEmployeeDao;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService {
