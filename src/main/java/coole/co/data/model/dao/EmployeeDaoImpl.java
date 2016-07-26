@@ -52,16 +52,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
     }
 
     @Override
-    public Employee addEmployee(final Employee employee) throws SQLException {
-//      try {
-        System.out.println("Add an employees to departmernt :" + employee.getDepartmentId());
-        // jdbcTemplate.update("upsert into employees values (name, email, department_id) values("+employee.getName()+","+employee.getEmailId()+",)");
-//          Connection connection = jdbcTemplate.getDataSource().getConnection();
-//          Statement statement = connection.createStatement();
-//          statement.executeUpdate("upsert into employees values (1,'Hello World')");
-        Connection connection = jdbcTemplate.getDataSource().getConnection();
-        Statement statement = connection.createStatement();
-        statement.executeUpdate("upsert into employees values (1,'Hello World')");
+    public Employee addEmployee(final Employee employee) {
 
         PreparedStatementCreator ps = new PreparedStatementCreator() {
             @Override
@@ -75,18 +66,10 @@ public class EmployeeDaoImpl implements IEmployeeDao {
                 return ps;
             }
         };
-
         KeyHolder holder = new GeneratedKeyHolder();
         jdbcTemplate.update(ps, holder);
-
         employee.setId(holder.getKey().intValue());
-
-
         return employee;
-//      } catch (SQLException ex) {
-//          Logger.getLogger(EmployeeDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-//          return null;
-//      }
     }
 
     @Override
