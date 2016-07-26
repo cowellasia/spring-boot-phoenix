@@ -1,4 +1,4 @@
-package coole.co.application;
+package coole.co;
 
 import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 
 @PropertySource(value = {"classpath:phoenix.properties"})
@@ -24,7 +27,7 @@ public class Application {
     @Bean
     public DataSource dataSource() {
 
-        /*    EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+           /*EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
     EmbeddedDatabase db =
         builder.setType(EmbeddedDatabaseType.H2).setSeparator(";;")
         .addScript("database/create-db.sql")
