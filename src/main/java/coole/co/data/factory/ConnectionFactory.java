@@ -18,7 +18,7 @@ public class ConnectionFactory {
     private static Connection con;
     //TODO : need to get port and host from configuration
     protected static String PHOENIX_HOST = "localhost";
-    protected static int PHOENIX_PORT = 2181;
+    protected static int PHOENIX_PORT = 8765;
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         if (con == null || con.isClosed()) {
