@@ -48,7 +48,15 @@ public class EmployeeController {
     String json = getResults(sqlQuery);
     return json;
   }
-  
+  @RequestMapping(value = "/feeds", method = RequestMethod.GET)
+  @ResponseBody
+  public String getFeeds() {
+    String sqlQuery = "SELECT * FROM feeds";
+    String json = getResults(sqlQuery);
+    return json;
+  }
+
+
   protected String getJson(String json) {
     String output = json.toString().replace("_id\":", "_id\":\"")
         .replace(",\"hostname", "\",\"hostname")
@@ -59,13 +67,14 @@ public class EmployeeController {
   
 
 
-  @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
+ /* @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
   public String getEmployee(@PathVariable int employeeId) {
 
     String sqlQuery = "SELECT * FROM employees";
     String json = getResults(sqlQuery);
     return json;
-  }
+  } */
+
 //  @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
 //  public Employee getEmployee(@PathVariable int employeeId) {
 //
