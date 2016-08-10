@@ -21,8 +21,7 @@ import org.springframework.stereotype.Repository;
 import coole.co.data.model.Employee;
 import coole.co.data.model.PagedList;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 @Repository
 public class EmployeeDaoImpl implements IEmployeeDao {
