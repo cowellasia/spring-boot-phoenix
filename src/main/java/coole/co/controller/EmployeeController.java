@@ -206,12 +206,15 @@ public class EmployeeController {
         put.add(FAMILY_NAME_B, f2v2, Bytes.toBytes("f2value2"));
         mutations.add(put);
 
+       // pconn.commit();
         hTable.batch(mutations);
-        return "insert success";
+
+        //return "insert success";
 
         // Create Phoenix table after HBase table was created through the native APIs
         // The timestamp of the table creation must be later than the timestamp of the data
-        // ensureTableCreated(getUrl(), HBASE_DYNAMIC_COLUMNS);
+        pconn.createStatement().executeUpdate("CREATE SCHEMA IF NOT EXISTS " + HBASE_DYNAMIC_COLUMNS);
+       // ensureTableCreated(getUrl(), HBASE_DYNAMIC_COLUMNS);
       } finally {
         hTable.close();
         return "hello world";
