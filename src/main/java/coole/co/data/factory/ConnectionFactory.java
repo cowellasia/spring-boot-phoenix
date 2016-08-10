@@ -24,7 +24,7 @@ public class ConnectionFactory {
         if (con == null || con.isClosed()) {
             Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
             //con = DriverManager.getConnection("jdbc:phoenix:" + PHOENIX_HOST + ":" + PHOENIX_PORT);
-            con = DriverManager.getConnection("jdbc:phoenix:52.208.47.78");
+            con = DriverManager.getConnection("jdbc:phoenix:ip-172-31-42-77.eu-west-1.compute.internal");
         }
         return con;
     }
