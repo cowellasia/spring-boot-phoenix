@@ -28,6 +28,7 @@ import java.util.List;
  * Created by nguyendanghung on 8/10/16.
  */
 @RestController
+@RequestMapping("/dynamic")
 public class DynamicContorller {
 
 
