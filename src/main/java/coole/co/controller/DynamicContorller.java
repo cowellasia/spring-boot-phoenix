@@ -1,6 +1,10 @@
 package coole.co.controller;
 
 import coole.co.data.factory.ConnectionFactory;
+import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTableInterface;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Row;
@@ -32,7 +36,27 @@ public class DynamicContorller {
     private static final String HBASE_DYNAMIC_COLUMNS = "HBASE_DYNAMIC_COLUMNS";
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String createDynamicColumn() throws Exception {
+    public String create() throws Exception{
+        try {
+
+            PhoenixConnection pconn = ConnectionFactory.getConnection().unwrap(PhoenixConnection.class);
+            ConnectionQueryServices services = pconn.getQueryServices();
+            try (HBaseAdmin admin = services.getAdmin()) {
+                HTableDescriptor htd = new HTableDescriptor(TableName.valueOf(HBASE_DYNAMIC_COLUMNS));
+                htd.addFamily(new HColumnDescriptor(QueryConstants.DEFAULT_COLUMN_FAMILY_BYTES));
+                htd.addFamily(new HColumnDescriptor(FAMILY_NAME_A));
+                htd.addFamily(new HColumnDescriptor(FAMILY_NAME_B));
+                admin.createTable(htd);
+            }
+
+        } finally {
+            //conn.close();
+            return "create success";
+        }
+    }
+
+    @RequestMapping(value = "/insert", method = RequestMethod.GET)
+    public String insert() throws Exception {
         try {
 
             PhoenixConnection pconn = ConnectionFactory.getConnection().unwrap(PhoenixConnection.class);
@@ -59,7 +83,7 @@ public class DynamicContorller {
                 mutations.add(put);
 
                 hTable.batch(mutations);
-                return "DONE";
+                return "insert success";
 
                 // Create Phoenix table after HBase table was created through the native APIs
                 // The timestamp of the table creation must be later than the timestamp of the data
