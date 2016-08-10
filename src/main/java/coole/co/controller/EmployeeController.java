@@ -158,6 +158,7 @@ public class EmployeeController {
   }
 
   @RequestMapping(value = "/create", method = RequestMethod.GET)
+  @ResponseBody
   public String create() throws Exception{
     try {
 
@@ -178,6 +179,7 @@ public class EmployeeController {
   }
 
   @RequestMapping(value = "/insert", method = RequestMethod.GET)
+  @ResponseBody
   public String insert() throws Exception {
     try {
 
@@ -222,6 +224,7 @@ public class EmployeeController {
   }
 
   @RequestMapping(value = "/test", method = RequestMethod.GET)
+  @ResponseBody
   public ResultSet getTest() throws Exception {
     String query = "SELECT * FROM HBASE_DYNAMIC_COLUMNS (DV varchar)";
 
